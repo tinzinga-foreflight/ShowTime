@@ -103,7 +103,7 @@ public extension UIColor {
     
 }
 
-class TouchView: UILabel {
+class TouchView: UIView {
     
     /// Creates a new instance representing a touch to visually display.
     ///
@@ -171,10 +171,11 @@ class TouchView: UILabel {
         layer.borderColor = ShowTime.strokeColor.cgColor
         layer.borderWidth = ShowTime.strokeWidth
         backgroundColor = ShowTime.fillColor == .auto ? ShowTime.strokeColor.withAlphaComponent(0.5) : ShowTime.fillColor
-        text = ShowTime.shouldShowMultipleTapCount && touch.tapCount > 1 ? "\(touch.tapCount)" : nil
-        textAlignment = .center
-        textColor = ShowTime.multipleTapCountTextColor
-        font = ShowTime.multipleTapCountTextFont
+// To resolve https://github.com/KaneCheshire/ShowTime/issues/63, forked repo and derived from UIView
+//        text = ShowTime.shouldShowMultipleTapCount && touch.tapCount > 1 ? "\(touch.tapCount)" : nil
+//        textAlignment = .center
+//        textColor = ShowTime.multipleTapCountTextColor
+//        font = ShowTime.multipleTapCountTextFont
         clipsToBounds = true
         isUserInteractionEnabled = false
     }
